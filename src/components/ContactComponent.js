@@ -1,42 +1,42 @@
 import React, { Component } from 'react';
 import { Breadcrumb, BreadcrumbItem, Button, Form, FormGroup, Label, Input, Col, FormFeedback } from 'reactstrap'
-
+import { Control, LocalForm, Errors } from 'react-redux-form'
 
 class Contact extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            firstname: '',
-            lastname: '',
-            telnum: '',
-            email: '',
-            agree: false,
-            contactType: 'Tel.',
-            message: '',
-            touched: {
-                firstname: false,
-                lastname: false,
-                telnum: false,
-                email: false
-            }
-        }
+        // this.state = {
+        //     firstname: '',
+        //     lastname: '',
+        //     telnum: '',
+        //     email: '',
+        //     agree: false,
+        //     contactType: 'Tel.',
+        //     message: '',
+        //     touched: {
+        //         firstname: false,
+        //         lastname: false,
+        //         telnum: false,
+        //         email: false
+        //     }
+        // }
 
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleInputChange = this.handleInputChange.bind(this);
-        this.handleBlur = this.handleBlur.bind(this);
+        // this.handleInputChange = this.handleInputChange.bind(this);
+        // this.handleBlur = this.handleBlur.bind(this);
         this.validate = this.validate.bind(this);
     }
 
-    handleInputChange(event) {
-        const target = event.target;
-        const value = target.type === 'checkbox' ? target.check : target.value;
-        const name = target.name;
+    // handleInputChange(event) {
+    //     const target = event.target;
+    //     const value = target.type === 'checkbox' ? target.check : target.value;
+    //     const name = target.name;
 
-        this.setState({
-            [name]: value
-        })
-    }
+    //     this.setState({
+    //         [name]: value
+    //     })
+    // }
 
     handleSubmit(event) {
         console.log("Current State is " + JSON.stringify(this.state));
@@ -44,29 +44,29 @@ class Contact extends Component {
         event.preventDefault();
     }
 
-    handleBlur = (field) => (evt) => {
-        this.setState({
-            touched: { ...this.state.touched, [field]: true }
-        })
-    }
+    // handleBlur = (field) => (evt) => {
+    //     this.setState({
+    //         touched: { ...this.state.touched, [field]: true }
+    //     })
+    // }
 
-    validate(firstname, lastname, email, telnum) {
-        const error = {
-            firstname: '',
-            lastname: '',
-            telnum: '',
-            email: ''
-        };
+    // validate(firstname, lastname, email, telnum) {
+    //     const error = {
+    //         firstname: '',
+    //         lastname: '',
+    //         telnum: '',
+    //         email: ''
+    //     };
 
-        if (this.state.touched.firstname && firstname.length < 3)
-            error.firstname = "Firstname should be longer than 3 chars"
+    //     if (this.state.touched.firstname && firstname.length < 3)
+    //         error.firstname = "Firstname should be longer than 3 chars"
 
-        const reg = /^\d+$/;
-        if (this.state.touched.telnum && !reg.test(telnum))
-            error.telnum = "Only number permitted in tel."
+    //     const reg = /^\d+$/;
+    //     if (this.state.touched.telnum && !reg.test(telnum))
+    //         error.telnum = "Only number permitted in tel."
 
-        return error;
-    }
+    //     return error;
+    // }
 
     render() {
         const errors = this.validate(this.state.firstname, this.state.lastname, this.state.email, this.state.telnum)
