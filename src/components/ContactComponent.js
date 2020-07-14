@@ -180,7 +180,9 @@ class Contact extends Component {
                                         className="form-control" />
                                 </Col>
                             </Row>
-
+                            <div class="mt-4 col-md-12">
+                                {/* add a gap */}
+                            </div>
                             <Row classname="form-group">
                                 <Col md={{ size: 10, offset: 2 }}>
                                     <Button type="submit" color="primary">
