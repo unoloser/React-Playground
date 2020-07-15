@@ -67,32 +67,6 @@ class Main extends Component {
             </div>
         );
     };
-
-
-
-    // render() {
-    //     if (this.state.selectedDish == null) {
-    //         return (
-    //             <div>
-    //                 <Header />
-    //                 <Menu dishes={this.state.dishes} onClick={(dishId) => this.onDishSelect(dishId)} />
-    //                 {/* <DishDetail dish={this.state.dishes.filter((dish) => dish.id === this.state.selectedDish)[0]} /> */}
-    //                 <Footer />
-    //             </div>
-    //         );
-    //     }
-    //     else {
-    //         // console.log(this.state.selectedDish)
-    //         return (
-    //             <div>
-    //                 <Header />
-    //                 <Menu dishes={this.state.dishes} onClick={(dishId) => this.onDishSelect(dishId)} />
-    //                 <DishDetail dish={this.state.dishes.filter((dish) => dish.id === this.state.selectedDish)[0]} />
-    //                 <Footer />
-    //             </div>
-    //         );
-    //     }
-    // }
 }
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Main));
